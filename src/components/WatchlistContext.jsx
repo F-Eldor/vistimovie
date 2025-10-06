@@ -1,5 +1,5 @@
-// src/context/WatchlistContext.jsx
 import { createContext, useContext, useState, useEffect } from "react";
+import Footer from './Footer'
 
 const WatchlistContext = createContext();
 

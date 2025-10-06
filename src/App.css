@@ -116,7 +116,7 @@ a {
 
 /* Hide elements when popup is active */
 body.popup-active .movies-container,
-body.popup-active footer,
+body.popup-active,
 body.popup-active .some-other-component {
   display: none;
 }
@@ -267,7 +267,7 @@ footer{
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background-color: transparent;
+  background-color: ;
 }
 .footer-div{
   width: 85%;
