@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "title": "Interstellar",
+    "poster": "/interstellar.jpg",
+    "description": "A team of explorers travels through a wormhole in space in an attempt to ensure humanity's survival. Directed by Christopher Nolan.",
+    "rating": 8.7,
+    "link": "https://1flix.to/movie/watch-interstellar-19788"  },
+  {
+    "id": 2,
+    "title": "Gentlemen",
+    "poster": "/gentlemen.jpg",
+    "description": "Gangsters of all stripes share a drug farm. Guy Ritchie's twisted action comedy with Matthew McConaughey and Hugh Grant",
+    "rating": 8.7,
+    "link": "https://1flix.to/movie/watch-the-gentlemen-59074"  },
+  {
+    "id": 3,
+    "title": "Shutter Island",
+    "poster": "/shutter.jpg",
+    "description": "Two bailiffs investigate the escape of a patient from a dark mental hospital. Paranoid thriller with Leonardo DiCaprio",
+    "rating": 8.6,
+    "link": "https://1flix.to/movie/watch-shutter-9245"
+    },
+  {
+    "id": 4,
+    "title": "The Green Mile",
+    "poster": "/green.jpg",
+    "description": "The Green Mile",
+    "rating": 8.1,
+    "link": "https://1flix.to/movie/watch-the-green-mile-19395"
+    },
+  {
+    "id": 5,
+    "title": "Terminator 2: Judgment Day",
+    "poster": "/terminator.jpg",
+    "description": "Liquid cyborg, nuclear apocalypse and the cult 'Hasta la vista, baby'. James Cameron's immortal masterpiece",
+    "rating": 8.4,
+    "link": "https://1flix.to/movie/watch-terminator-2-judgment-day-19609"
+    },
+  {
+    "id": 6,
+    "title": "F1 ",
+    "poster": "/f1.jpg",
+    "description": "An action-packed drama set in the world of Formula 1 racing, starring Brad Pitt.",
+    "rating": 8.3,
+    "link": "https://1flix.to/movie/watch-f1-the-movie-127393"
+    },
+  {
+    "id": 7,
+    "title": "Nezha Defeats the Dragon King ",
+    "poster": "https://avatars.mds.yandex.net/get-ott/13074011/2a00000198e62cb6d02f40cd057419e76682/600x900",
+    "description": "A self-confident boy has a week to save his friend and his hometown. The highest-grossing cartoon in history.",
+    "rating": 8.5,
+    "link": "https://sspoisk.ru/film/6944852/"
+    },
+  {
+    "id": 8,
+    "title": "Guns ",
+    "poster": "/guns.jpg",
+    "description": "A thriller and detective story about an object that can make one's wishes come true, with a high price to pay.",
+    "rating": 7.3,
+    "link": "https://1flix.to/tv/watch-guns-24836"
+    },
+  {
+    "id": 9,
+    "title": "Superman ",
+    "poster": "/superman.jpg",
+    "description": "The new film about Superman, a superhero with incredible powers who fights for justice and protects the world.",
+    "rating": 6.8,
+    "link": "https://1flix.to/movie/watch-superman-127954"
+  },
+  {
+    "id": 10,
+    "title": "How to Train Your Dragon ",
+    "poster": "/dragon.jpg",
+    "description": "A coming-of-age story about a Viking boy and a friendly dragon who defy their traditions to form an unlikely bond.",
+    "rating": 8.1,
+    "link": "https://1flix.to/movie/watch-how-to-train-your-dragon-126679"
+  }
+]

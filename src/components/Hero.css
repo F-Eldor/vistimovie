@@ -1,0 +1,411 @@
+/* Enhanced Hero Movie Carousel Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Container for all movie cards */
+.movies-container {
+  width: 100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  padding: 60px 0;
+  cursor: grab;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  position: fixed;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 20%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.movies-container:active {
+  cursor: grabbing;
+}
+
+/* Hides the scrollbar for WebKit browsers */
+.movies-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Flexbox container to arrange cards in a row */
+.movies {
+  display: flex;
+  align-items: center;
+  padding: 0 50vw;
+  position: relative;
+}
+
+/* Ambient lighting effect behind active card */
+.movies::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 107, 107, 0.15) 0%,
+    rgba(239, 68, 68, 0.1) 30%,
+    transparent 70%
+  );
+  border-radius: 20px;
+  filter: blur(40px);
+  z-index: -1;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Styles for each individual movie card */
+.movie-card {
+  display: inline-block;
+  text-align: center;
+  margin: 0 20px;
+  transition: 
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    filter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  transform: scale(0.85) translateY(10px);
+  opacity: 0.5;
+  filter: brightness(0.5) grayscale(0.8) blur(1px);
+  width: 220px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Hover effect for inactive cards */
+.movie-card:not(.active):hover {
+  transform: scale(0.9) translateY(5px);
+  opacity: 0.7;
+  filter: brightness(0.7) grayscale(0.5) blur(0.5px);
+}
+
+/* Styles for the active (centered) movie card */
+.movie-card.active {
+  transform: scale(1) translateY(-10px);
+  opacity: 1;
+  filter: brightness(1.1) grayscale(0) blur(0px);
+  z-index: 15;
+}
+
+/* Enhanced glow effect for active card */
+.movie-card.active::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 107, 0.3) 0%,
+    rgba(239, 68, 68, 0.2) 50%,
+    rgba(168, 85, 247, 0.1) 100%
+  );
+  border-radius: 20px;
+  filter: blur(20px);
+  z-index: -1;
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* Image styles within the movie card */
+.movie-card img {
+  width: 90%;
+  height: auto;
+  border-radius: 16px;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Enhanced image effect for active card */
+.movie-card.active img {
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  transform: rotateY(2deg);
+}
+
+/* Title and button fade effects */
+.movie-card h3,
+.movie-card .movie-btn {
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+/* Makes them visible with animation on the active card */
+.movie-card.active h3,
+.movie-card.active .movie-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.movie-card.active h3 {
+  transition-delay: 0.2s;
+}
+
+.movie-card.active .movie-btn {
+  transition-delay: 0.4s;
+}
+
+/* Enhanced title styling */
+.movie-card h3 {
+  width: 100%;
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  padding: 8px 10px 10px;
+  text-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(255, 107, 107, 0.3);
+  z-index: 2;
+  white-space: normal;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced "Watch Now" button */
+.movie-btn {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 8px 20px rgba(239, 68, 68, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Button shimmer effect */
+.movie-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s;
+}
+
+.movie-btn:hover::before {
+  left: 100%;
+}
+
+.movie-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 30px rgba(239, 68, 68, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+.movie-btn:active {
+  transform: translateY(-1px);
+}
+
+.movie-btn a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Enhanced responsive design */
+@media (max-width: 480px) {
+  .movies-container {
+    padding: 40px 0;
+  }
+
+  .movies {
+    padding: 0 25vw;
+  }
+
+  .movies::before {
+    width: 180px;
+    height: 280px;
+  }
+
+  .movie-card {
+    width: 160px;
+    margin: 0 12px;
+    transform: scale(0.8) translateY(8px);
+  }
+
+  .movie-card.active {
+    transform: scale(1.05) translateY(-15px);
+  }
+
+  .movie-card h3 {
+    font-size: 1.2rem;
+    padding: 12px 8px 8px;
+  }
+
+  .movie-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .movies-container {
+    padding: 50px 0;
+  }
+
+  .movies {
+    padding: 0 40vw;
+  }
+
+  .movies::before {
+    width: 220px;
+    height: 320px;
+  }
+
+  .movie-card {
+    width: 180px;
+    margin: 0 15px;
+    transform: scale(0.85) translateY(8px);
+  }
+
+  .movie-card.active {
+    transform: scale(1.1) translateY(-18px);
+  }
+
+  .movie-card h3 {
+    font-size: 1.4rem;
+    padding: 14px 8px 8px;
+  }
+
+  .movie-btn {
+    padding: 13px 24px;
+    font-size: 0.95rem;
+    margin-top: 18px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .movies-container {
+    padding: 55px 0;
+  }
+
+  .movies {
+    padding: 0 45vw;
+  }
+
+  .movies::before {
+    width: 250px;
+    height: 360px;
+  }
+
+  .movie-card {
+    width: 200px;
+    margin: 0 18px;
+  }
+
+  .movie-card.active {
+    transform: scale(1.12) translateY(-18px);
+  }
+
+  .movie-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .movie-btn {
+    padding: 14px 26px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  .movies-container {
+    padding: 60px 0;
+  }
+
+  .movies {
+    padding: 0 50vw;
+  }
+
+  .movie-card {
+    width: 220px;
+    margin: 0 20px;
+  }
+
+  .movie-card.active {
+    transform: scale(1.15) translateY(-20px);
+  }
+
+  .movie-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .movie-btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* Loading animation for images */
+.movie-card img[src=""] {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
